@@ -7,9 +7,10 @@ namespace itertools{
 	
 	class rangeClass{
     public:
-		T t1, t2;
+		const T t1;
+		const T t2;
         rangeClass(){}
-        rangeClass(T& t3, T& t4):t1(t3),t2(t4){};
+        rangeClass(const T& t3,const T& t4):t1(t3),t2(t4){};
 
 
         class iterator {
@@ -43,12 +44,12 @@ namespace itertools{
 		
 		};
 
-		auto begin()
+		auto begin() const 
 		{
 			return iterator{t1};
 		}
 
-		auto end()
+		auto end() const
 		{
 		   return iterator{t2};
 		}	

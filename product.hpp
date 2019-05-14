@@ -6,28 +6,28 @@ namespace itertools{
 	template<class T, class Y>
 	
 	class product{
-        T t;
-        Y y;
+        const T t;
+        const Y y;
 	public:
 		product(){}
-        product(T t0,Y y0):t(t0),y(y0){};
+        product(const T t0,const Y y0):t(t0),y(y0){};
         
-		auto begin()
+		auto begin() const
 		{
 			return t.begin();
 		}
 
-		auto end()
+		auto end() const
 		{
 		   return t.begin();
 		}	
 		
 		class iterator
 		{
-			T t1;
-			Y y1;
+			const T t1;
+			const Y y1;
 		public:
-			iterator(T t0, Y y0) : t1(t0), y1(y0){}
+			iterator(const T t0, const Y y0) : t1(t0), y1(y0){}
 		};
 				
 	};

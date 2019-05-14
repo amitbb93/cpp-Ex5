@@ -6,26 +6,26 @@ namespace itertools{
 	template<class T>
 	
 	class powerset{
-        T t;
+        const T t;
 	public:
 		powerset(){}
-        powerset(T t0):t(t0){};
+        powerset(const T t0):t(t0){};
         
-		auto begin()
+		auto begin() const
 		{
 			return t.begin();
 		}
 
-		auto end()
+		auto end() const
 		{
 		   return t.begin();
 		}	
 		
 		class iterator
 		{
-			T t1;
+			const T t1;
 		public:
-			iterator(T t0) : t1(t0){}
+			iterator(const T t0) : t1(t0){}
 		};		
 	};
 };
