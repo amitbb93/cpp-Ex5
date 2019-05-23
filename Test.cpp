@@ -102,35 +102,29 @@ string answer3=toString(result4);
 string answer4=toString(result5);
 string answer5=toString(result6);
 
-cout<<"result3: "<<answer1<<endl;
-cout<<"result2: "<<answer2<<endl;
-testcase.setname("range result ")
-.CHECK_EQUAL ( answer=="12345678", true)
-.CHECK_EQUAL ( answer1=="1.12.13.14.15.16.1", true)
-.CHECK_EQUAL ( answer2=="cdefg", true)
-;
+
 testcase.setname("chain results  ")
 .CHECK_EQUAL ( result4=="lihiamit", true )
 .CHECK_EQUAL ( result5=="abamitbibi", true )
 .CHECK_EQUAL ( result6=="cde", true )
 ;
 testcase.setname("zip results  ")
-.CHECK_OUTPUT ( result7.str(), "0,h  1,e  2,l  3,l  4,o  ")
-.CHECK_OUTPUT ( result8.str(),"al bi ch di eb")
-.CHECK_OUTPUT ( result9.str(),"0hal 1ebi 2lch 3ldi 4oeb ")
-.CHECK_OUTPUT ( result10.str(),"7,a  8,b  9,c  10,d  11,e  12,f ")
-.CHECK_OUTPUT ( result11.str(),"1,a 2,b 3,c 4,d 5,e 6,f 7,g 8,h 9,i")
+.CHECK_OUTPUT ( result7.str(), "0,h 1,e 2,l 3,l 4,o ")
+.CHECK_OUTPUT ( result8.str(),"a,l b,i c,h d,i e,b ")
+.CHECK_OUTPUT ( result9.str(),"0,h,a,l 1,e,b,i 2,l,c,h 3,l,d,i 4,o,e,b ")
+.CHECK_OUTPUT ( result10.str(),"7,a 8,b 9,c 10,d 11,e 12,f ")
+.CHECK_OUTPUT ( result11.str(),"1,a 2,b 3,c 4,d 5,e 6,f 7,g 8,h 9,i ")
 .CHECK_OUTPUT ( result12.str(),"23,a 24,m 25,i 26,t 27,b 28,b ")
 ;
 testcase.setname("product results  ")
-.CHECK_OUTPUT ( result13.str(),"12a 13a 12b 13b ")
-.CHECK_OUTPUT ( result14.str(),"1a 1m 1i 1t ")
-.CHECK_OUTPUT ( result15.str(),"lb ib hb ib ")
+.CHECK_OUTPUT ( result13.str(),"1,a 1,b 2,a 2,b 3,a 3,b ")
+.CHECK_OUTPUT ( result14.str(),"1,a 1,m 1,i 1,t ")
+.CHECK_OUTPUT ( result15.str(),"l,b i,b h,b i,b ")
 ;
 testcase.setname("powerset results  ")
-.CHECK_OUTPUT ( result16.str()," {} {1} {2} {1,2} {1,2,3}")
-.CHECK_OUTPUT ( result17.str()," {} {a} {b} {a,b} {a,b,c} ")
-.CHECK_OUTPUT ( result18.str(),"{} {a} {b} {1} {a,b} {a,1} {b,1} {a,b,1} ")
+.CHECK_OUTPUT ( result16.str(),"{} {1} {2} {1,2} {3} {1,3} {2,3} {1,2,3} ")
+.CHECK_OUTPUT ( result17.str(),"{} {a} {b} {a,b} {c} {a,c} {b,c} {a,b,c} ")
+.CHECK_OUTPUT ( result18.str(),"{} {a} {b} {a,b} {1} {a,1} {b,1} {a,b,1} ")
 ;
 /* //won't work shoud work on it
 for(auto i  : zip1) result7=result7+to_string(i.first)+i.second+" ";
