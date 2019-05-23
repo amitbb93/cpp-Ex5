@@ -80,14 +80,19 @@ namespace itertools
     }; 
 
     template <typename T>
-    ostream &operator<<(ostream &os, const vector<T> &iter)
+    ostream &operator<<(ostream &os, vector<T> &iter)
     {
-        os << "{"; 
-        auto temp = iter.begin();
-        if (temp != iter.end()){ 
-            os << *temp;
-            ++temp;
-        }
+		auto temp = iter.begin();
+		if(iter.begin() == iter.end()){
+			os << "{";
+			os << "}";
+			return os;
+		}
+		else{
+			os << "{";
+			os << *temp;
+			++temp;
+		}
         while (temp != iter.end()){ 
             os << ',' << *temp;
             ++temp;

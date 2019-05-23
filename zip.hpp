@@ -49,8 +49,7 @@ namespace itertools
 		
 		template<typename T, typename Y>
 		ostream& operator<<(ostream& os, const pair<T, Y>& p){
-			os << p.first << ","
-			<< p.second<<" ";
+			os << p.first << "," << p.second;
 			return os;
 		}
 
