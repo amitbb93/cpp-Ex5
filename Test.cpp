@@ -9,8 +9,18 @@ using namespace std;
 using namespace itertools;
 #include "badkan.hpp"
 #define COMMA ,
-
+template<typename Iterable>
+string toString(const Iterable& iterable){
+ stringstream ostr;
+ for(decltype(*(iterable.begin())) i: iterable){
+   ostr << i << ",";
+ }     
+ return ostr.str();
+} 
 int main() {
+	
+	
+	
 
     badkan::TestCase testcase;
     int grade=0;
@@ -18,9 +28,9 @@ int main() {
     if (signal == 0) {
 		
 
-auto range1=range<int>(1,9);
-auto range2=range<double>(1.1,7.1);
-auto range3=range<char>('c','h');
+auto range1=range(1,9);
+auto range2=range(1.1,7.1);
+auto range3=range('c','h');
 auto chain1= chain(string("lihi"),string("amit"));
 auto chain2= chain(range('a','c'), string("amitbibi"));
 auto chain3= chain(range('c','d'), range('d','f'));
@@ -84,10 +94,20 @@ for (auto i : powerset1)result16 << i << " ";
 for (auto i : powerset2)result17 << i << " ";
 for (auto i : powerset3)result18 << i << " ";
 
+
+string answer=toString(result1);
+string answer1=toString(result2);
+string answer2=toString(result3);
+string answer3=toString(result4);
+string answer4=toString(result5);
+string answer5=toString(result6);
+
+cout<<"result3: "<<answer1<<endl;
+cout<<"result2: "<<answer2<<endl;
 testcase.setname("range result ")
-.CHECK_EQUAL ( result1=="12345678", true)
-.CHECK_EQUAL ( result2=="1.12.13.14.15.16.1", true)
-.CHECK_EQUAL ( result3=="cdefg", true)
+.CHECK_EQUAL ( answer=="12345678", true)
+.CHECK_EQUAL ( answer1=="1.12.13.14.15.16.1", true)
+.CHECK_EQUAL ( answer2=="cdefg", true)
 ;
 testcase.setname("chain results  ")
 .CHECK_EQUAL ( result4=="lihiamit", true )
@@ -95,12 +115,12 @@ testcase.setname("chain results  ")
 .CHECK_EQUAL ( result6=="cde", true )
 ;
 testcase.setname("zip results  ")
-.CHECK_OUTPUT ( result7.str(), "0h 1e 2l 3l 4o ")
+.CHECK_OUTPUT ( result7.str(), "0,h  1,e  2,l  3,l  4,o  ")
 .CHECK_OUTPUT ( result8.str(),"al bi ch di eb")
 .CHECK_OUTPUT ( result9.str(),"0hal 1ebi 2lch 3ldi 4oeb ")
-.CHECK_OUTPUT ( result10.str(),"7a 8b 9c 10d 11e 12f ")
-.CHECK_OUTPUT ( result11.str(),"1a 2b 3c 4d 5e 6f 7g 8h 9i")
-.CHECK_OUTPUT ( result12.str(),"23a 24m 25i 26t 27b 28b ")
+.CHECK_OUTPUT ( result10.str(),"7,a  8,b  9,c  10,d  11,e  12,f ")
+.CHECK_OUTPUT ( result11.str(),"1,a 2,b 3,c 4,d 5,e 6,f 7,g 8,h 9,i")
+.CHECK_OUTPUT ( result12.str(),"23,a 24,m 25,i 26,t 27,b 28,b ")
 ;
 testcase.setname("product results  ")
 .CHECK_OUTPUT ( result13.str(),"12a 13a 12b 13b ")
